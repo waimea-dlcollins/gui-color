@@ -31,8 +31,20 @@ fun main() {
 class MainWindow : JFrame(), ActionListener {
 
     // Fields to hold the UI elements
-    private lateinit var greetingLabel: JLabel
-    private lateinit var helloButton: JButton
+
+    private lateinit var redJTextField: JTextField
+    private lateinit var greenJTextField: JTextField
+    private lateinit var blueJTextField: JTextField
+
+    private lateinit var redUpButton: JButton
+    private lateinit var redDownButton: JButton
+
+    private lateinit var greenUpButton: JButton
+    private lateinit var greenDownButton: JButton
+
+    private lateinit var blueUpButton: JButton
+    private lateinit var blueDownButton: JButton
+
 
     /**
      * Configure the UI and display it
@@ -49,7 +61,7 @@ class MainWindow : JFrame(), ActionListener {
      * Configure the main window
      */
     private fun configureWindow() {
-        title = "Kotlin Swing GUI Demo"
+        title = "Kotlin color picker"
         contentPane.preferredSize = Dimension(600, 350)
         defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
         isResizable = false
@@ -64,17 +76,60 @@ class MainWindow : JFrame(), ActionListener {
     private fun addControls() {
         val defaultFont = Font(Font.SANS_SERIF, Font.PLAIN, 30)
 
-        greetingLabel = JLabel("Hello, World!")
-        greetingLabel.horizontalAlignment = SwingConstants.CENTER
-        greetingLabel.bounds = Rectangle(50, 50, 500, 100)
-        greetingLabel.font = defaultFont
-        add(greetingLabel)
+        redUpButton = JButton("+")
+        redUpButton.horizontalAlignment = SwingConstants.CENTER
+        redUpButton.bounds = Rectangle(190, 150, 100, 100)
+        redUpButton.font = defaultFont
+        add(redUpButton)
 
-        helloButton = JButton("Click Me!")
-        helloButton.bounds = Rectangle(50,200,500,100)
-        helloButton.font = defaultFont
-        helloButton.addActionListener(this)     // Handle any clicks
-        add(helloButton)
+        greenUpButton = JButton("+")
+        greenUpButton.bounds = Rectangle(10,270,100,100)
+        greenUpButton.font = defaultFont
+        greenUpButton.addActionListener(this)      // Handle any clicks
+        add(greenUpButton)
+
+        blueUpButton = JButton("+")
+        blueUpButton.bounds = Rectangle(10,80,100,100)
+        blueUpButton.font = defaultFont
+        blueUpButton.addActionListener(this)      // Handle any clicks
+        add(blueUpButton)
+
+        redDownButton = JButton("+")
+        redDownButton.horizontalAlignment = SwingConstants.CENTER
+        redDownButton.bounds = Rectangle(50, 50, 500, 100)
+        redDownButton.font = defaultFont
+        add(redDownButton)
+
+        greenDownButton = JButton("+")
+        greenDownButton.horizontalAlignment = SwingConstants.CENTER
+        greenDownButton.bounds = Rectangle(50, 50, 500, 100)
+        greenDownButton.font = defaultFont
+        add(greenDownButton)
+
+        blueDownButton = JButton("+")
+        blueDownButton.horizontalAlignment = SwingConstants.CENTER
+        blueDownButton.bounds = Rectangle(50, 50, 500, 100)
+        blueDownButton.font = defaultFont
+        add(blueDownButton)
+
+        redJTextField = JTextField("+")
+        redJTextField.horizontalAlignment = SwingConstants.CENTER
+        redJTextField.bounds = Rectangle(50, 50, 500, 100)
+        redJTextField.font = defaultFont
+        add(redJTextField)
+
+        greenJTextField = JTextField("+")
+        greenJTextField.horizontalAlignment = SwingConstants.CENTER
+        greenJTextField.bounds = Rectangle(50, 50, 500, 100)
+        greenJTextField.font = defaultFont
+        add(greenJTextField)
+
+        blueJTextField = JTextField("+")
+        blueJTextField.horizontalAlignment = SwingConstants.CENTER
+        blueJTextField.bounds = Rectangle(50, 50, 500, 100)
+        blueJTextField.font = defaultFont
+        add(blueJTextField)
+
     }
 
 
@@ -83,8 +138,8 @@ class MainWindow : JFrame(), ActionListener {
      */
     override fun actionPerformed(e: ActionEvent?) {
         when (e?.source) {
-            helloButton -> {
-                greetingLabel.text = "You clicked the button!"
+            redUpButton -> {
+                redJTextField.text = "You clicked the button!"
             }
         }
     }
